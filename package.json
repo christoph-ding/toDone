@@ -1,0 +1,17 @@
+{
+  "name": "toDone",
+  "version": "0.0.0",
+  "description": "a check list app to help you get stuff done",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ironpup/toDone"
+  },
+  "dependencies": {
+    "angular": "^1.4.7",
+    "angular-ui-router": "^0.2.15",
+    "body-parser": "^1.4.3",
+    "express": "^4.4.5",
+    "mongoose": "^4.1.0",
+    "morgan": "^1.1.1"
+  }
+}

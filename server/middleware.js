@@ -3,7 +3,12 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 
 module.exports = function(app, express) {
-  // routers
+  // define routers
+  var tasksRouter = express.Router()
+
+  // tasks Router
+  app.use('/home/tasks', tasksRouter);
+  require('./tasks/tasksRouter.js')(tasksRouter);
 
   // logging
   app.use(morgan('dev'));

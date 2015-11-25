@@ -9,3 +9,30 @@ body {
 h1 {
 
 }
+
+.navigation {
+  background-color: #1B4965;
+}
+
+.navigation ul {
+  background-color: #1B4965;
+}
+
+.navigation li {
+  float: left;
+  display: block;
+  background-color: #1B4965;
+}
+
+.navigation li a:hover {
+  background-color: white;
+}
+
+.add {
+  background-color: blue;
+}
+
+#mainView {
+  clear: left;
+  background-color: blue;
+}

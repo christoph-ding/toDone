@@ -13,8 +13,14 @@ module.exports = {
         Name: day[i].name,
         Frequency: 1,
         Weight: day[i].weight
+      });
+      newTask.save( function(err, newTask) {
+        if (err) {
+          res.send(500, err);
+        } else {
+          res.status(newTask).send(newTask.body);
+        }
       })
     }
   }
-
 };

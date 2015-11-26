@@ -1,8 +1,20 @@
 var dayModel = require('./daysModel.js')
+var taskModel = require('../tasks/tasksModel.js')
+var tasksController = require('../tasks/tasksController.js')
+var Q = require('q');
 
 module.exports = {
+
+  // handle a new day
+  handleDay: function (req, res, next) {
+    console.log("... got to the day controller");    
+    // first extract the tasks, add them to bank
+    var currentDay = req.body;
+    tasksController.extract(req, res, currentDay, next);
+  },
+
   sayHello: function(req, res, next) {
-    console.log("...got to the day controller");
+
 
     var newDay = new dayModel({
         Tasks: req.body

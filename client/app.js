@@ -52,7 +52,8 @@ app.controller('tasksCtrl', function ($scope, $http) {
 
 // Signin Page Controller
 app.controller('signinCtrl', function ($scope, $http) {
-  $scope.signIn = function() {
+  $scope.signin = function() {
     console.log('username is     ', $scope.user.username);
+    console.log('password is     ', $scope.user.password);    
   }
 });

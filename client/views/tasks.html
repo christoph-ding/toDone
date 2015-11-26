@@ -1,14 +1,20 @@
 <div>
-  <div class="tasks">
+  <div class="tasks" ng-controller="tasksCtrl">
   <h1> Tasks </h1>
   
   <fieldset>
     <legend> Do It! </legend>
-    <input type="text" name="taskName" placeholder="it shall be done">    
-    <input type="text" name="importance" placeholder="how important is it"> 
-    <input type="submit" value="Add Task">    
-
+    <input type="text" name="taskName" ng-model='task.name' placeholder="it shall be done">    
+    <input type="text" name="importance" ng-model='task.weight' placeholder="how important is it"> 
+    <input type="submit" value="Add Task" ng-click="addTask()">    
   </fieldset>
+
+  <ul id="taskList">
+    <li ng-click="deleteTask($index)" ng-repeat='task in tasks track by $index'> {{task['name']}} <br>    
+    </li>
+  </ul>
+
+  <button ng-click="save()"> Save Day </button>
 
 </div>
 

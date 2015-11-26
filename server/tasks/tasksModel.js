@@ -1,11 +1,15 @@
 var mongoose = require('mongoose');
 
-var tasksSchema = new mongoose.Schema({
+var TaskSchema = new mongoose.Schema({
   Name: String,
   Frequency: Number,
   Category: String
 });
 
-var Tasks = mongoose.model('Tasks', tasksSchema);
+var Task = mongoose.model('Task', TaskSchema);
 
-module.exports = Tasks;
+TaskSchema.pre('save', function (next) {
+  next();
+});
+
+module.exports = Task;

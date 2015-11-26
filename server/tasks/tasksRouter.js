@@ -1,7 +1,6 @@
 var tasksController = require('./tasksController');
 
 module.exports = function(app) {
-  // app.route('/')
-  //   .post(tasksController);
-
+  app.route('/')
+    .post(tasksController.sayHello);
 }

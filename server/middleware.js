@@ -4,11 +4,16 @@ var bodyParser = require('body-parser');
 
 module.exports = function(app, express) {
   // define routers
-  var tasksRouter = express.Router()
+  var tasksRouter = express.Router();
+  var daysRouter = express.Router();
 
   // tasks Router
-  app.use('/home/tasks', tasksRouter);
-  require('./tasks/tasksRouter.js')(tasksRouter);
+  // app.use('/api/save', tasksRouter);
+  // require('./tasks/tasksRouter.js')(tasksRouter);
+
+  // days Router
+  app.use('/api/save', bodyParser.json(), daysRouter);
+  require('./days/daysRouter.js')(daysRouter);
 
   // logging
   app.use(morgan('dev'));

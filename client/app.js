@@ -11,13 +11,18 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     })
     .state('home.tasks', {
       url: '/tasks',
-      parent: 'home',
       templateUrl: 'views/tasks.html',
       controller: 'tasksCtrl'
+    })
+    .state('home.signin', {
+      url: '/signin',      
+      templateUrl: 'views/signin.html',
+      controller: 'signinCtrl'
     });
 });
 
-app.controller('tasksCtrl', function($scope) {
+// Tasks Page Controller
+app.controller('tasksCtrl', function ($scope, $http) {
   $scope.tasks = [];
 
   $scope.addTask = function () {
@@ -32,15 +37,22 @@ app.controller('tasksCtrl', function($scope) {
     $scope.tasks.splice(index, 1);
   }
 
-  $scope.save = function ($HTTP) {
+  $scope.save = function () {
     console.log('saving day...');
     return $http({
       method: 'POST',
-      url:'/save',
+      url:'api/save',
       data: $scope.tasks
     })
     .then(function (resp){
       return resp;
     })
+  }
+});
+
+// Signin Page Controller
+app.controller('signinCtrl', function ($scope, $http) {
+  $scope.signIn = function() {
+    console.log('username is     ', $scope.user.username);
   }
 });

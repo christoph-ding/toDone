@@ -19,6 +19,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: 'views/signin.html',
       controller: 'signinCtrl'
     })
+    .state('home.signup', {
+      url: '/signup',      
+      templateUrl: 'views/signup.html',
+      controller: 'signupCtrl'
+    })
     .state('home.compare', {
       url: '/compare',      
       templateUrl: 'views/compare.html',
@@ -35,7 +40,6 @@ app.controller('tasksCtrl', function ($scope, $http) {
     currentTask.name = $scope.task.name;    
     currentTask.weight = $scope.task.weight;
     $scope.tasks.push(currentTask);
-    console.log(currentTask, '        ', $scope.tasks);
   }
 
   $scope.deleteTask = function (index) {    
@@ -43,7 +47,6 @@ app.controller('tasksCtrl', function ($scope, $http) {
   }
 
   $scope.save = function () {
-    console.log('saving day...');
     return $http({
       method: 'POST',
       url:'api/save',
@@ -63,6 +66,13 @@ app.controller('signinCtrl', function ($scope, $http) {
   }
 });
 
+// Signup Page Controller
+app.controller('signupCtrl', function ($scope, $http) {
+  $scope.signin = function() {
+    console.log('username is     ', $scope.user.username);
+    console.log('password is     ', $scope.user.password);    
+  }
+});
 // Compare Page Controller
 app.controller('compareCtrl', function ($scope, $http) {
   $scope.signin = function() {

@@ -11,7 +11,7 @@ require('./middleware.js')(app, express);
 
 // connect to database
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1');
+mongoose.connect('mongodb://127.0.0.1/toDone');
 var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));

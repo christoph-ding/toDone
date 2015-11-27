@@ -8,7 +8,6 @@ module.exports = function(app, express) {
   var tasksRouter = express.Router();
   var daysRouter = express.Router();
 
-  console.log("middleware")
   // tasks Router
   // app.use('/api/save', tasksRouter);
   // require('./tasks/tasksRouter.js')(tasksRouter);

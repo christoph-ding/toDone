@@ -18,6 +18,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       url: '/signin',      
       templateUrl: 'views/signin.html',
       controller: 'signinCtrl'
+    })
+    .state('home.compare', {
+      url: '/compare',      
+      templateUrl: 'views/compare.html',
+      controller: 'compareCtrl'
     });
 });
 
@@ -52,6 +57,14 @@ app.controller('tasksCtrl', function ($scope, $http) {
 
 // Signin Page Controller
 app.controller('signinCtrl', function ($scope, $http) {
+  $scope.signin = function() {
+    console.log('username is     ', $scope.user.username);
+    console.log('password is     ', $scope.user.password);    
+  }
+});
+
+// Compare Page Controller
+app.controller('compareCtrl', function ($scope, $http) {
   $scope.signin = function() {
     console.log('username is     ', $scope.user.username);
     console.log('password is     ', $scope.user.password);    

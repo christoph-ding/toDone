@@ -44,7 +44,7 @@ app.controller('tasksCtrl', function ($scope, $http) {
       url:'api/save',
       data: $scope.tasks
     })
-    .then(function (resp){
+    .then(function (resp) {
       return resp;
     })
   }

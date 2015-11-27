@@ -1,12 +1,14 @@
 // middleware
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
+var path = require('path')
 
 module.exports = function(app, express) {
   // define routers
   var tasksRouter = express.Router();
   var daysRouter = express.Router();
 
+  console.log("middleware")
   // tasks Router
   // app.use('/api/save', tasksRouter);
   // require('./tasks/tasksRouter.js')(tasksRouter);
@@ -19,6 +21,5 @@ module.exports = function(app, express) {
   app.use(morgan('dev'));
 
   // serve static files
-  app.use(express.static('../client'))
-
+  app.use(express.static((__dirname + '/../client')))
 };

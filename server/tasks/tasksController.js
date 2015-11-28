@@ -3,45 +3,44 @@ var Q = require('q');
 
 module.exports = {  
   extract: function(req, res, day, next) {
-    console.log("... extracting tasks from ...", day)
-
-    var findAllEat = Q.nbind(taskModel.find, taskModel);
-
-    findAllEat({'name' : 'eat'})
-      .then(function (tasks) {
-        res.send(tasks);
-      })
-      .fail(function (error) {
-        next(error);
-      })
-    // var query = Person.findOne({ 'name.last': 'Ghost' });
-
-    // // selecting the `name` and `occupation` fields
-    // query.select('name occupation');
-
-    // // execute the query at a later time
-    // query.exec(function (err, person) {
-    //   if (err) return handleError(err);
-    //   console.log('%s %s is a %s.', person.name.first, person.name.last, person.occupation) // Space Ghost is a talk show host.
-    // })
+    
+    for (var i = 0; i < day.length; i++) {
+      
+      console.log('making ', day[i].name)
+      var createTask = Q.nbind(taskModel.create, taskModel);
+      var newTask = {
+        name: day[i].name,
+        frequency: 1,
+        weight: day[i].weight
+      };
+      createTask(newTask);
+      }
 
 
-    // iterate through the entire day
-    // for (var i = 0; i < day.length; i++) {
-    //   // add that task to a task collection
-    //   console.log(day[i])
-    //   var newTask = new taskModel({
-    //     Name: day[i].name,
-    //     Frequency: 1,
-    //     Weight: day[i].weight
-    //   });
-    //   newTask.save( function(err, newTask) {
-    //     if (err) {
-    //       res.send(500, err);
-    //     } else {
-    //       res.status(newTask).send(newTask.body);
-    //     }
-    //   })
-    // }
+
+
+      // newTask.save(function (err, newTask) {
+      //   if (err) {
+      //     res.send(500, err);
+      //   } else {
+      //     res.status(newTask).send(newTask.body);
+      //   }
+      // })
+    } 
   }
 };
+    //   var checkTask = Q.nbind(taskModel.find, taskModel);
+    //   checkTask({})
+    //     .then(function (results) {
+    //       if (results) 
+    //       // if this task does not already exists, add it
+    //       console.log('searching for ', day[i].name, '    found ', results)
+    //       if (results.length === 0) {      
+          // add that task to a task collection
+          //   console.log('adding...  ', day[i].name);
+    //       }
+    //     })
+    //     .fail(function (error) {
+    //       console.log("encountered error! ", i)          
+    //     })
+    // }

@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
 
 var TaskSchema = new mongoose.Schema({
-  Name: String,
-  Frequency: Number,
-  Weight: String
+  name: String,
+  frequency: Number,
+  weight: String
 });
 
 var Task = mongoose.model('Task', TaskSchema);

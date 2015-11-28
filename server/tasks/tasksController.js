@@ -9,7 +9,7 @@ module.exports = {
     Promise.map(day, function(task) {      
       // check if the current tasks exists      
       console.log('current task is ', task.name);
-      taskModel.find({name: task.name} ,function (err, match) {
+      taskModel.find({name: task.name}, function (err, match) {
         if (err) { // error
           res.send(500, err);
         } else if (match.length === 0) {

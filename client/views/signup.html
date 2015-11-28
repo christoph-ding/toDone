@@ -1,8 +1,8 @@
 <div>
   <h1> sign up </h1>
-  <form name="signupForm">  
-    <input type='text' placeholder="username">
-    <input type='password' placeholder="password">
+  <form name="signupForm" ng-submit='signup()'>  
+    <input type='text' placeholder="username" ng-model='user.username'>
+    <input type='password' placeholder="password" ng-model='user.password'>
     <button> signup </button>
   </form>
 </div>

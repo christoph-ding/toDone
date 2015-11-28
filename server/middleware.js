@@ -7,6 +7,7 @@ module.exports = function(app, express) {
   // define routers
   var tasksRouter = express.Router();
   var daysRouter = express.Router();
+  var usersRouter = express.Router();  
 
   // tasks Router
   // app.use('/api/save', tasksRouter);
@@ -15,6 +16,10 @@ module.exports = function(app, express) {
   // days Router
   app.use('/api/save', bodyParser.json(), daysRouter);
   require('./days/daysRouter.js')(daysRouter);
+
+  // users Router
+  app.use('/api/users/signup', bodyParser.json(), usersRouter);
+  require('./users/usersRouter.js')(usersRouter);
 
   // logging
   app.use(morgan('dev'));

@@ -22,7 +22,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     .state('home.signup', {
       url: '/signup',      
       templateUrl: 'views/signup.html',
-      controller: 'signupCtrl'
+      controller: 'signup'
     })
     .state('home.compare', {
       url: '/compare',      
@@ -67,16 +67,21 @@ app.controller('signinCtrl', function ($scope, $http) {
 });
 
 // Signup Page Controller
-app.controller('signupCtrl', function ($scope, $http) {
-  $scope.signin = function() {
-    console.log('username is     ', $scope.user.username);
-    console.log('password is     ', $scope.user.password);    
+app.controller('signup', function ($scope, $http) {
+  $scope.signup = function() {
+    console.log('user is     ', $scope.user);
+    return $http({
+      method: 'POST',
+      url: '/api/users/signup',
+      data: $scope.user
+    })
+    .then(function (resp) {
+      return resp;
+    })
   }
 });
+
 // Compare Page Controller
-app.controller('compareCtrl', function ($scope, $http) {
-  $scope.signin = function() {
-    console.log('username is     ', $scope.user.username);
-    console.log('password is     ', $scope.user.password);    
-  }
+app.controller('compareCtrl', function ($scope, $http) { 
+  
 });

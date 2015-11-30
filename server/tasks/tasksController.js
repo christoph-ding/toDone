@@ -16,10 +16,12 @@ module.exports = {
           var newTask = new taskModel({
             name: task.name,
             frequency: 1,
-            weight: task.weight
+            weight: task.weight,
+            postedBy: task.user._id              
           })
           newTask.save(function (err, newTask) {
             if (err) {
+              console.log(err);
               console.log('there was an error adding ', task.name, ' ... ');                 
             } else {
               console.log('there was no error adding ', task.name, ' ... ');               

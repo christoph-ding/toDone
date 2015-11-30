@@ -1,9 +1,14 @@
 var mongoose = require('mongoose');
+var userModel = require('../users/userModel.js')
 
 var TaskSchema = new mongoose.Schema({
   name: String,
   frequency: Number,
-  weight: String
+  weight: String,
+  postedBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  }
 });
 
 var Task = mongoose.model('Task', TaskSchema);

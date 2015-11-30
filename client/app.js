@@ -39,6 +39,7 @@ app.controller('tasksCtrl', function ($scope, $http) {
     var currentTask = {};
     currentTask.name = $scope.task.name;    
     currentTask.weight = $scope.task.weight;
+    currentTask.user = $scope.task.user;    
     $scope.tasks.push(currentTask);
   }
 
@@ -91,6 +92,6 @@ app.controller('signup', function ($scope, $http) {
 // Compare Page Controller
 app.controller('compareCtrl', function ($scope, $http) { 
   $scope.fetchTasks = function() {
-    
+
   }
 });

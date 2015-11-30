@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var userModel = require('../users/userModel.js')
 
 var DaySchema = new mongoose.Schema({
   Tasks: Array

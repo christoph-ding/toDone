@@ -2,7 +2,11 @@ var mongoose = require('mongoose');
 var userModel = require('../users/userModel.js')
 
 var DaySchema = new mongoose.Schema({
-  Tasks: Array
+  Tasks: Array,
+  postedBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  }
 });
 
 var Day = mongoose.model('Day', DaySchema);

@@ -51,7 +51,10 @@ app.controller('tasksCtrl', function ($scope, $http) {
     return $http({
       method: 'POST',
       url:'api/save',
-      data: $scope.tasks
+      data: {
+        Tasks: $scope.tasks,
+        postedBy: $scope.tasks[0].postedBy
+      }      
     })
     .then(function (resp) {
       return resp;

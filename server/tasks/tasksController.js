@@ -15,6 +15,7 @@ module.exports = {
           res.sendStatus(500);
         } else if (match.length === 0) {
           var findUser = Q.nbind(userModel.findOne, userModel);
+          console.log('looking for userID ', task.postedBy)
           findUser({username: task.postedBy})
             .then(function (foundUser) {
               if (!foundUser) {
@@ -38,10 +39,11 @@ module.exports = {
               })
             }
           })
-        .then(function() {
-          console.log("done...sending response");
-          res.sendStatus(200);    
-          });
-    });  
+      })
+    .then(function () {
+      next();
+    });
   }
 };
+
+  

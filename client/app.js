@@ -90,5 +90,7 @@ app.controller('signup', function ($scope, $http) {
 
 // Compare Page Controller
 app.controller('compareCtrl', function ($scope, $http) { 
-  
+  $scope.fetchTasks = function() {
+    
+  }
 });

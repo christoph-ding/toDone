@@ -41,6 +41,8 @@ module.exports = {
         console.log(username ,' found, password is ', match[0].password);
         if (password === match[0].password) {
           console.log('signed in!');
+        //   var token = jwt.encode(user, 'secret');
+        //   res.json({token: token});
         }
         res.send();
       } else if (match.length === 0) {

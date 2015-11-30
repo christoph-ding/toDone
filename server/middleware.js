@@ -18,8 +18,11 @@ module.exports = function(app, express) {
   require('./days/daysRouter.js')(daysRouter);
 
   // users Router
+  app.use('/api/users/', bodyParser.json(), usersRouter);
   app.use('/api/users/signup', bodyParser.json(), usersRouter);
   require('./users/usersRouter.js')(usersRouter);
+
+
 
   // logging
   app.use(morgan('dev'));

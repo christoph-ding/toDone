@@ -61,8 +61,15 @@ app.controller('tasksCtrl', function ($scope, $http) {
 // Signin Page Controller
 app.controller('signinCtrl', function ($scope, $http) {
   $scope.signin = function() {
-    console.log('username is     ', $scope.user.username);
-    console.log('password is     ', $scope.user.password);    
+    console.log('signing in as ', $scope.user.username);
+    return $http({
+      method: 'POST',
+      url: '/api/users/signin',
+      data: $scope.user
+    })
+    .then(function (resp) {
+      return resp;
+    })
   }
 });
 

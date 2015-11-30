@@ -1,5 +1,6 @@
 var userModel = require('./userModel.js');
 var Q = require('q');
+var jwt = require('jwt-simple');
 
 module.exports = {
   signUp: function (req, res) {
@@ -37,7 +38,10 @@ module.exports = {
       if (err) {        
         res.send(500, err);
       } else if (match.length > 0) {
-        console.log(username ,' found');
+        console.log(username ,' found, password is ', match[0].password);
+        if (password === match[0].password) {
+          console.log('signed in!');
+        }
         res.send();
       } else if (match.length === 0) {
         console.log('sign up!')

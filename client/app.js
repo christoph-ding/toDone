@@ -39,7 +39,7 @@ app.controller('tasksCtrl', function ($scope, $http) {
     var currentTask = {};
     currentTask.name = $scope.task.name;    
     currentTask.weight = $scope.task.weight;
-    currentTask.user = $scope.task.user;    
+    currentTask.postedBy = $scope.task.postedBy;    
     $scope.tasks.push(currentTask);
   }
 
